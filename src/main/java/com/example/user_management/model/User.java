@@ -1,8 +1,6 @@
 package com.example.user_management.model;
 
-import javax.xml.bind.annotation.XmlID;
-
-import jakarta.persistance.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "users")
