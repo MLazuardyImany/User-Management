@@ -14,7 +14,7 @@ public class UserService {
     private UserRepository repo;
 
     public User create(User user) {
-        return repo.save(save);
+        return repo.save(user);
     }
 
     public List<User> getAll() {
@@ -26,7 +26,18 @@ public class UserService {
     }
 
     public User update(Long id, User data) {
-        
+        User user = repo.findById(id).orElse(null);
+        if (user == null) return null;
+
+        user.setUsername(data.getUsername());
+        user.setPassword(data.getPassword());
+        user.setRole(data.getRole());
+
+        return repo.save(user);
+    }
+
+    public void delete(Long id) {
+        repo.deleteById(null);
     }
 }
 
